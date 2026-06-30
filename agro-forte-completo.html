@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agro Forte - Soluções tecnológicas e sustentáveis para o agronegócio brasileiro.">
+    <title>Agro Forte | Futuro Sustentável</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Estilos Personalizados (inline) -->
+    <style>
+        :root {
+            --primary-green: #22c55e;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+        
+        /* Hero Background */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.75)), 
+                              url('https://source.unsplash.com/random/2000x1200/?drone,farm,sustainable');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Section Title with underline */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #22c55e, #86efac);
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 35px 60px -15px rgb(0 0 0 / 0.5);
+        }
+        
+        /* Calculator specific styles */
+        #calculator-card input[type="range"] {
+            accent-color: #22c55e;
+        }
+        
+        #calculator-card select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- ====================== NAVBAR ====================== -->
+    <nav class="fixed top-0 w-full bg-zinc-950/95 backdrop-blur-lg z-50 border-b border-green-900">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-green-500 rounded-2xl flex items-center justify-center">
+                    <i class="fa-solid fa-leaf text-2xl"></i>
+                </div>
+                <h1 class="text-3xl font-bold title-font tracking-tighter">AGRO FORTE</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-lg font-medium">
+                <a href="#sobre" class="hover:text-green-400 transition-colors">Sobre</a>
+                <a href="#solucoes" class="hover:text-green-400 transition-colors">Soluções</a>
+                <a href="#calculadora" class="hover:text-green-400 transition-colors">Calculadora</a>
+                <a href="#impacto" class="hover:text-green-400 transition-colors">Impacto</a>
+                <a href="#informacoes" class="hover:text-green-400 transition-colors">Conhecimento</a>
+            </div>
+            
+            <a href="#calculadora" class="bg-green-600 hover:bg-green-500 px-8 py-3.5 rounded-2xl font-semibold transition-all">
+                Calcular Impacto
+            </a>
+        </div>
+    </nav>
+
+    <!-- ====================== HERO ====================== -->
+    <section id="hero" class="hero-bg h-screen flex items-center pt-20 relative">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-6 text-sm">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                LIDERANÇA EM AGRICULTURA SUSTENTÁVEL
+            </div>
+            <h1 class="text-6xl md:text-7xl font-bold title-font leading-none mb-6">
+                O FUTURO DO<br>AGRONEGÓCIO<br>É <span class="text-green-400">SUSTENTÁVEL</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-xl text-zinc-300 mb-10">
+                Tecnologia avançada + práticas regenerativas = mais produtividade com menos impacto ambiental.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="#calculadora" class="bg-green-600 hover:bg-green-500 px-10 py-5 rounded-2xl text-lg font-semibold transition-all">
+                    Calcular Meu Impacto
+                </a>
+                <a href="#sobre" class="border border-white/60 hover:bg-white/10 px-10 py-5 rounded-2xl text-lg font-semibold transition-all">
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== SOBRE ====================== -->
+    <section id="sobre" class="py-28 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center title-font mb-16 section-title">Quem Somos</h2>
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7 space-y-8 text-lg text-zinc-300">
+                    <p>A <span class="text-green-400 font-semibold">Agro Forte</span> une o melhor do conhecimento tradicional do campo com as tecnologias mais avançadas do agronegócio.</p>
+                    <p>Desde 2021, trabalhamos para aumentar a rentabilidade dos produtores enquanto regeneramos o solo, economizamos recursos e reduzimos emissões.</p>
+                </div>
+                <div class="md:col-span-5 grid grid-cols-2 gap-6">
+                    <div class="bg-zinc-800 p-8 rounded-3xl text-center">
+                        <div class="text-5xl font-bold text-green-400">18</div>
+                        <div class="text-zinc-400 mt-2">Estados</div>
+                    </div>
+                    <div class="bg-zinc-800 p-8 rounded-3xl text-center">
+                        <div class="text-5xl font-bold text-green-400">450+</div>
+                        <div class="text-zinc-400 mt-2">Produtores</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== SOLUÇÕES ====================== -->
+    <section id="solucoes" class="py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center title-font mb-16 section-title">Nossas Soluções</h2>
+            <div class="grid md:grid-cols-3 gap-8" id="solucoes-container"></div>
+        </div>
+    </section>
+
+    <!-- ====================== CALCULADORA ====================== -->
+    <section id="calculadora" class="py-28 bg-zinc-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center title-font mb-6 section-title">Calculadora de Impacto</h2>
+            <p class="text-center text-zinc-400 mb-12">Simule o potencial sustentável da sua propriedade</p>
+            
+            <div class="bg-zinc-800 rounded-3xl p-12 border border-green-900" id="calculator-card">
+                <!-- Conteúdo carregado via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== IMPACTO ====================== -->
+    <section id="impacto" class="py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center title-font mb-16 section-title">Impacto Real</h2>
+            <div class="grid md:grid-cols-4 gap-8" id="impact-grid"></div>
+        </div>
+    </section>
+
+    <!-- ====================== INFORMAÇÕES / FAQ ====================== -->
+    <section id="informacoes" class="py-28 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center title-font mb-16 section-title">Perguntas Frequentes</h2>
+            <div class="space-y-4" id="faq"></div>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="bg-black py-16 border-t border-green-900">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-zinc-500">© 2026 Agro Forte - Futuro Sustentável do Agronegócio Brasileiro</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Completo (inline) -->
+    <script>
+        // ========================================
+        // AGRO FORTE - Main JavaScript
+        // ========================================
+
+        // ====================== DADOS ======================
+        const solucoes = [
+            { 
+                icon: "fa-satellite", 
+                title: "Monitoramento por IA", 
+                desc: "Análise preditiva com satélites e drones de alta precisão." 
+            },
+            { 
+                icon: "fa-seedling", 
+                title: "Agricultura Regenerativa", 
+                desc: "Recuperação do solo e aumento da biodiversidade." 
+            },
+            { 
+                icon: "fa-robot", 
+                title: "Automação Inteligente", 
+                desc: "Irrigação, pulverização e colheita de precisão." 
+            }
+        ];
+
+        const impactData = [
+            { number: "87", text: "Aumento médio de produtividade (%)" },
+            { number: "62", text: "Redução de emissões de CO₂ (%)" },
+            { number: "2.8", text: "Milhões de litros de água economizados" },
+            { number: "210", text: "Projetos implementados" }
+        ];
+
+        const faqs = [
+            { 
+                q: "Como funciona o monitoramento por IA?", 
+                a: "Utilizamos imagens multiespectrais e inteligência artificial para detectar problemas precocemente." 
+            },
+            { 
+                q: "Quais os benefícios da agricultura regenerativa?", 
+                a: "Melhora a saúde do solo, aumenta retenção de água e contribui para o sequestro de carbono." 
+            },
+            { 
+                q: "Quanto tempo para ver resultados?", 
+                a: "Resultados em produtividade aparecem na primeira safra, benefícios de solo são progressivos." 
+            }
+        ];
+
+        // ====================== FUNÇÕES DE RENDER ======================
+        function renderSolucoes() {
+            const container = document.getElementById('solucoes-container');
+            if (!container) return;
+
+            container.innerHTML = solucoes.map(item => `
+                <div class="bg-zinc-900 rounded-3xl p-10 card-hover border border-zinc-800">
+                    <i class="fa-solid ${item.icon} text-6xl text-green-400 mb-8"></i>
+                    <h3 class="text-2xl font-semibold mb-4">${item.title}</h3>
+                    <p class="text-zinc-400">${item.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderCalculator() {
+            const card = document.getElementById('calculator-card');
+            if (!card) return;
+
+            card.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div>
+                            <label class="block text-sm font-medium text-zinc-400 mb-3">ÁREA (hectares)</label>
+                            <input type="range" id="hectares" min="50" max="5000" value="800" step="50" class="w-full accent-green-500">
+                            <div class="flex justify-between text-sm mt-2">
+                                <span id="ha-value" class="font-mono text-green-400">800</span>
+                                <span class="text-zinc-500">ha</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-zinc-400 mb-3">CULTURA PRINCIPAL</label>
+                            <select id="cultura" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-5 text-lg">
+                                <option value="1.25">Soja</option>
+                                <option value="1.1">Milho</option>
+                                <option value="1.6">Café / Fruticultura</option>
+                                <option value="0.9">Pecuária</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-10">
+                        <div class="flex items-center gap-5">
+                            <i class="fa-solid fa-arrow-trend-up text-4xl text-green-400"></i>
+                            <div>
+                                <div class="text-sm text-zinc-400">PRODUTIVIDADE</div>
+                                <div id="prod" class="text-4xl font-bold text-green-400">+89%</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <i class="fa-solid fa-cloud text-4xl text-green-400"></i>
+                            <div>
+                                <div class="text-sm text-zinc-400">REDUÇÃO CO₂</div>
+                                <div id="co2" class="text-4xl font-bold text-green-400">-142 ton</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <i class="fa-solid fa-tint text-4xl text-green-400"></i>
+                            <div>
+                                <div class="text-sm text-zinc-400">ÁGUA ECONOMIZADA</div>
+                                <div id="agua" class="text-4xl font-bold text-green-400">1.9M L</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="calcularImpacto()" 
+                        class="mt-12 w-full bg-green-600 hover:bg-green-500 py-6 rounded-2xl font-bold text-xl transition-all">
+                    ATUALIZAR CÁLCULO
+                </button>
+            `;
+        }
+
+        function calcularImpacto() {
+            const haInput = document.getElementById('hectares');
+            const culturaSelect = document.getElementById('cultura');
+            
+            if (!haInput || !culturaSelect) return;
+
+            const ha = parseFloat(haInput.value) || 800;
+            const fator = parseFloat(culturaSelect.value) || 1.25;
+            
+            // Atualiza o valor exibido do slider
+            const haValue = document.getElementById('ha-value');
+            if (haValue) haValue.textContent = ha;
+            
+            // Cálculos com um pouco de variação realista
+            const prod = Math.round(82 + Math.random() * 18);
+            const co2 = Math.round(ha * 0.175 * fator);
+            const agua = Math.round(ha * 2450 * fator);
+            
+            // Atualiza os valores na tela
+            const prodEl = document.getElementById('prod');
+            const co2El = document.getElementById('co2');
+            const aguaEl = document.getElementById('agua');
+            
+            if (prodEl) prodEl.textContent = `+${prod}%`;
+            if (co2El) co2El.textContent = `-${co2} ton`;
+            if (aguaEl) aguaEl.textContent = `${(agua/1000000).toFixed(1)}M L`;
+        }
+
+        function renderImpact() {
+            const container = document.getElementById('impact-grid');
+            if (!container) return;
+
+            container.innerHTML = impactData.map(item => `
+                <div class="bg-zinc-900 rounded-3xl p-8 text-center card-hover">
+                    <div class="text-6xl font-bold text-green-400">${item.number}</div>
+                    <div class="text-zinc-400 mt-4">${item.text}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faq');
+            if (!container) return;
+
+            container.innerHTML = faqs.map(faq => `
+                <div class="bg-zinc-800 rounded-2xl p-7 cursor-pointer hover:bg-zinc-700 transition-colors" 
+                     onclick="this.querySelector('.answer').classList.toggle('hidden')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-semibold text-xl">${faq.q}</h3>
+                        <i class="fa-solid fa-plus text-green-400"></i>
+                    </div>
+                    <p class="answer hidden mt-6 text-zinc-400">${faq.a}</p>
+                </div>
+            `).join('');
+        }
+
+        // ====================== INICIALIZAÇÃO ======================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Renderiza todos os componentes dinâmicos
+            renderSolucoes();
+            renderCalculator();
+            renderImpact();
+            renderFAQ();
+            
+            // Executa o cálculo inicial
+            calcularImpacto();
+            
+            // Atualiza automaticamente ao mover o slider
+            const hectaresSlider = document.getElementById('hectares');
+            if (hectaresSlider) {
+                hectaresSlider.addEventListener('input', calcularImpacto);
+            }
+            
+            // Também atualiza quando mudar a cultura
+            const culturaSelect = document.getElementById('cultura');
+            if (culturaSelect) {
+                culturaSelect.addEventListener('change', calcularImpacto);
+            }
+        });
+    </script>
+</body>
+</html>
